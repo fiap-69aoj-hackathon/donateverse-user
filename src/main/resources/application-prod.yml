@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    driverClassName: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://donateverse-mysql:3306/donateverse-user
+    username: root
+    password: root
+  jpa:
+    show-sql: true
+    hibernate.format_sql: true
+  zipkin:
+    baseUrl: http://donateverse-zipkin:9411/
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://donateverse-discovery-server:8761/eureka/
