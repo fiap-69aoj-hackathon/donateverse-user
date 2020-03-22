@@ -63,7 +63,4 @@ public class UserEntity implements Serializable {
     @NotNull
     private LocalDate birthday;
 
-    @OneToMany(mappedBy = "sport", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    private Set<UserSportsEntity> userSports;
-
 }
