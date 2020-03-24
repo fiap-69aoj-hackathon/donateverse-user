@@ -5,6 +5,8 @@ import com.donateverse.user.dto.UserResponse;
 import com.donateverse.user.entity.UserEntity;
 import com.donateverse.user.service.TokenAuthenticationService;
 import com.donateverse.user.service.UserService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -22,6 +24,7 @@ import java.util.Optional;
  */
 @RestController
 @RequestMapping("/users")
+@Api(value = "Usuários", tags = {"API de usuários"})
 public class UserController {
 
     @Autowired
@@ -30,12 +33,14 @@ public class UserController {
     @Autowired
     private TokenAuthenticationService tokenAuthenticationService;
 
+    @ApiOperation(value = "Insere um novo usuário")
     @PostMapping
     public ResponseEntity<UserResponse> save(@Valid @RequestBody final UserRequest userRequest) {
         final UserResponse userResponse = userService.save(userRequest);
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 
+    @ApiOperation(value = "Busca um usuário por e-mail e senha")
     @GetMapping
     public ResponseEntity<UserResponse> findUserByEmailAndPassword(
             @RequestParam(name = "email") String email,
@@ -47,6 +52,7 @@ public class UserController {
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 
+    @ApiOperation(value = "Busca um usuário por id")
     @GetMapping("/{id}")
     public ResponseEntity<UserResponse> findById(@PathVariable("id") Long id) {
         UserResponse userResponse = userService.findById(id);
@@ -56,6 +62,7 @@ public class UserController {
         return new ResponseEntity<>(userResponse, HttpStatus.OK);
     }
 
+    @ApiOperation(value = "Busca um usuário por e-mail")
     @GetMapping("/me")
     public ResponseEntity<UserResponse> findByEmail(@RequestHeader("Authorization") String token) {
         UserResponse userResponse = userService.findByEmail(tokenAuthenticationService.getEmail(token));
