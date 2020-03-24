@@ -38,4 +38,10 @@ public class UserRequest implements Serializable {
     @NotNull
     private String password;
 
+    @NotNull
+    private String state;
+
+    @NotNull
+    private String city;
+
 }

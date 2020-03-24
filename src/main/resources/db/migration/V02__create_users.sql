@@ -6,10 +6,12 @@ CREATE TABLE `user` (
   `password` VARCHAR(256) NOT NULL,
   `birthday` DATE NOT NULL,
   `status` VARCHAR(256) NOT NULL,
+  `state` VARCHAR(256) NOT NULL,
+  `city` VARCHAR(256) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_name_unique` (`name`),
   UNIQUE KEY `user_email_unique` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
-INSERT INTO `user` (`name`, `email`, `phone`, `password`, `birthday`, `status`)
-VALUES ('flavio', 'flavio@fiap.com', '11999999999', '$2a$12$BFGgbf.8mJAxsI6jFlm/CeggMD/VpSqUj0xTSj.e0btI6XJijmCnm', '1988-04-29', 'ACTIVE');
+INSERT INTO `user` (`name`, `email`, `phone`, `password`, `birthday`, `status`, `state`, `city`)
+VALUES ('flavio', 'flavio@fiap.com', '11999999999', '$2a$12$BFGgbf.8mJAxsI6jFlm/CeggMD/VpSqUj0xTSj.e0btI6XJijmCnm', '1988-04-29', 'ACTIVE', 'SP', 'Carapicuiba');

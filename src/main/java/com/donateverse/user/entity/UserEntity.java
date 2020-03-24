@@ -63,4 +63,10 @@ public class UserEntity implements Serializable {
     @NotNull
     private LocalDate birthday;
 
+    @NotNull
+    private String state;
+
+    @NotNull
+    private String city;
+
 }
