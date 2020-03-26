@@ -1,4 +1,4 @@
-FROM openjdk:8-jdk-alpine
+FROM openjdk:7u211-jdk-alpine3.9
 
 LABEL source="https://github.com/fiap-69aoj-hackathon/donateverse-user" \
       maintainer="flavioso16@gmail.com"
